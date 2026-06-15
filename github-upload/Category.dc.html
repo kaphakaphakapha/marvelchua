@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html{scroll-behavior:smooth;}
+  html,body{margin:0;padding:0;background:#F6F5F2;}
+  *{box-sizing:border-box;}
+  ::selection{background:#8A2D3B;color:#fff;}
+  image-slot{--is-bg:#ECEBE6;--is-fg:#9a9a95;}
+</style>
+</helmet>
+
+<div style="--accent: {{ accent }};font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#161616;background:#F6F5F2;min-height:100vh;">
+
+  <nav style="position:sticky;top:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:16px clamp(28px,5vw,72px);background:rgba(246,245,242,0.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #E6E5DF;">
+    <a href="index.html#home" aria-label="Back to home" style="display:inline-flex;align-items:center;transition:opacity .2s ease;" style-hover="opacity:0.55">
+      <img src="assets/logo-m.png" alt="Marvel home" style="height:26px;width:auto;display:block;" />
+    </a>
+    <div style="display:flex;align-items:center;gap:clamp(20px,3vw,46px);font-size:15px;font-weight:600;letter-spacing:-0.01em;">
+      <a href="index.html#work" style="display:inline-flex;align-items:center;gap:8px;color:#161616;text-decoration:none;transition:color .2s ease;" style-hover="color:var(--accent,#8A2D3B)"><span style="font-size:18px;">&#8592;</span> All projects</a>
+      <a href="index.html#contact" style="color:#161616;text-decoration:none;transition:color .2s ease;" style-hover="color:var(--accent,#8A2D3B)">Contact</a>
+    </div>
+  </nav>
+
+  <section style="padding:clamp(48px,9vh,120px) clamp(28px,5vw,72px) clamp(36px,5vh,56px);">
+    <div style="max-width:1480px;margin:0 auto;">
+      <div style="font-size:13px;letter-spacing:0.02em;color:#9a9a95;margin-bottom:clamp(18px,2.6vh,26px);"><span style="color:var(--accent,#8A2D3B);font-weight:700;">({{ letter }})</span>&nbsp;&nbsp;Selected Work</div>
+      <h1 style="margin:0;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:900;font-size:clamp(48px,9vw,120px);line-height:0.9;letter-spacing:-0.045em;">{{ name }}</h1>
+      <p style="margin:clamp(24px,3.5vh,38px) 0 0;font-size:clamp(18px,1.7vw,26px);line-height:1.4;max-width:720px;color:#2a2a28;font-weight:500;letter-spacing:-0.01em;">{{ intro }}</p>
+
+      <div style="margin-top:clamp(36px,5vh,60px);border-top:1px solid #E6E5DF;padding-top:clamp(24px,3.5vh,36px);display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:clamp(24px,3vw,48px);">
+        <div>
+          <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#9a9a95;margin-bottom:10px;">Works</div>
+          <div style="font-size:16px;font-weight:600;line-height:1.4;">{{ count }} projects</div>
+        </div>
+        <div>
+          <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#9a9a95;margin-bottom:10px;">Years</div>
+          <div style="font-size:16px;font-weight:600;line-height:1.4;">{{ years }}</div>
+        </div>
+        <div>
+          <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#9a9a95;margin-bottom:10px;">Disciplines</div>
+          <div style="font-size:16px;font-weight:600;line-height:1.4;">{{ disciplines }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(12px,2vh,24px) clamp(28px,5vw,72px) clamp(40px,6vh,80px);">
+    <div style="max-width:1480px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,{{ gridMin }}),1fr));gap:clamp(28px,3.4vw,56px);">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+        <figure style="margin:0;display:flex;flex-direction:column;">
+          <div style="aspect-ratio:{{ p.aspect }};overflow:hidden;border-radius:10px;background:#ECEBE6;">
+            <image-slot id="{{ p.id }}" shape="rect" fit="cover" placeholder="{{ p.ph }}" style="width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.04)"></image-slot>
+          </div>
+          <figcaption style="display:flex;flex-direction:column;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;">
+              <span style="font-size:13px;font-weight:700;color:var(--accent,#8A2D3B);">{{ p.num }}</span>
+              <span style="font-size:12px;color:#9a9a95;">{{ p.year }}</span>
+            </div>
+            <div style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:clamp(22px,2.2vw,30px);letter-spacing:-0.02em;margin-top:8px;line-height:1.02;">{{ p.title }}</div>
+            <div style="font-size:14px;color:#6b6b66;margin-top:4px;">{{ p.kind }}</div>
+          </figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:clamp(48px,8vh,110px) clamp(28px,5vw,72px) clamp(64px,11vh,140px);border-top:1px solid #E6E5DF;margin-top:clamp(32px,5vh,64px);">
+    <div style="max-width:1480px;margin:0 auto;display:flex;align-items:flex-end;gap:32px;flex-wrap:wrap;">
+      <sc-if value="{{ hasPrev }}" hint-placeholder-val="{{ true }}">
+        <a href="Category.dc.html#{{ prevHash }}" style="text-decoration:none;color:#161616;display:block;text-align:left;">
+          <div style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#9a9a95;margin-bottom:14px;">Previous category</div>
+          <div style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:900;font-size:clamp(36px,6vw,80px);line-height:0.9;letter-spacing:-0.04em;transition:color .2s ease;" style-hover="color:var(--accent,#8A2D3B)">&#8592; {{ prevName }}</div>
+        </a>
+      </sc-if>
+      <sc-if value="{{ hasNext }}" hint-placeholder-val="{{ true }}">
+        <a href="Category.dc.html#{{ nextHash }}" style="text-decoration:none;color:#161616;display:block;text-align:right;margin-left:auto;">
+          <div style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#9a9a95;margin-bottom:14px;">Next category</div>
+          <div style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:900;font-size:clamp(36px,6vw,80px);line-height:0.9;letter-spacing:-0.04em;transition:color .2s ease;" style-hover="color:var(--accent,#8A2D3B)">{{ nextName }} &#8594;</div>
+        </a>
+      </sc-if>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;accent&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#8A2D3B&quot;, &quot;tsType&quot;: &quot;string&quot; }
+}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this._onHash = this._onHash.bind(this);
+  }
+  componentDidMount() {
+    window.addEventListener('hashchange', this._onHash);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('hashchange', this._onHash);
+  }
+  _onHash() {
+    try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, 0); }
+    this.forceUpdate();
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#8A2D3B';
+    const order = ['editorial', 'branding', 'posters', 'side'];
+    const CATS = {
+      editorial: {
+        key: 'editorial', letter: 'A', name: 'Editorial', aspect: '16/9', gridMin: '460px',
+        years: '2024\u20132026', disciplines: 'Magazines, Zines, Layout',
+        intro: 'Magazines, spreads and long-form layouts where typography leads and the story sets the pace.',
+        projects: [
+          { id: 'ed-frequencies', title: 'Frequencies', kind: 'Magazine \u00b7 24pp', year: '2024', ph: 'Magazine spread, Frequencies' },
+          { id: 'ed-feature', title: 'Feature Spread', kind: 'Editorial Layout', year: '2025', ph: 'Editorial feature spread' },
+          { id: 'ed-counterpoint', title: 'Counterpoint', kind: 'Zine \u00b7 16pp', year: '2025', ph: 'Zine spread, Counterpoint' },
+          { id: 'ed-margins', title: 'Margins', kind: 'Editorial Series', year: '2026', ph: 'Editorial layout, Margins' },
+        ],
+      },
+      branding: {
+        key: 'branding', letter: 'B', name: 'Branding', aspect: '3/4', gridMin: '300px',
+        years: '2025\u20132026', disciplines: 'Identity, Naming, Systems',
+        intro: 'Identities built from a single clear idea: naming, logo systems and the rules that keep them alive.',
+        projects: [
+          { id: 'brand-psst', title: 'PSST', kind: 'Brand Identity', year: '2025', ph: 'PSST brand shot' },
+          { id: 'brand-fefi', title: 'Fe-Fi-Pho-Fun', kind: 'Visual Identity', year: '2025', ph: 'Fe-Fi-Pho-Fun identity' },
+          { id: 'brand-three', title: 'Untitled', kind: 'Identity System', year: '2026', ph: 'Identity system' },
+        ],
+      },
+      posters: {
+        key: 'posters', letter: 'C', name: 'Posters', aspect: '2/3', gridMin: '280px',
+        years: '2024\u20132025', disciplines: 'Posters, Type, Image',
+        intro: 'Single-frame storytelling: type, image and tension resolved in one composition.',
+        projects: [
+          { id: 'poster-offgrid', title: 'Off-Grid', kind: 'Poster Series', year: '2024', ph: 'Off-Grid poster' },
+          { id: 'poster-two', title: 'Resonance', kind: 'Poster', year: '2025', ph: 'Poster' },
+          { id: 'poster-three', title: 'After Hours', kind: 'Poster', year: '2025', ph: 'Poster' },
+        ],
+      },
+      side: {
+        key: 'side', letter: 'D', name: 'Side Projects', aspect: '4/5', gridMin: '320px',
+        years: '2024\u20132026', disciplines: 'Experiments, Type, Photo',
+        intro: 'Experiments and self-initiated work, where I test ideas without a brief.',
+        projects: [
+          { id: 'side-one', title: 'In Progress', kind: 'Self-Initiated', year: '2026', ph: 'Side project' },
+          { id: 'side-two', title: 'Studies', kind: 'Type Studies', year: '2025', ph: 'Side project' },
+          { id: 'side-three', title: 'Field Notes', kind: 'Photography', year: '2024', ph: 'Side project' },
+        ],
+      },
+    };
+    const key = (typeof location !== 'undefined' ? location.hash : '').replace('#', '').toLowerCase();
+    const cat = CATS[key] || CATS.editorial;
+    const idx = order.indexOf(cat.key);
+    const prev = CATS[order[(idx - 1 + order.length) % order.length]];
+    const next = CATS[order[(idx + 1) % order.length]];
+    const projects = cat.projects.map((p, i) => Object.assign({}, p, {
+      aspect: cat.aspect,
+      num: String(i + 1).padStart(2, '0'),
+    }));
+    return {
+      accent,
+      letter: cat.letter,
+      name: cat.name,
+      intro: cat.intro,
+      years: cat.years,
+      disciplines: cat.disciplines,
+      gridMin: cat.gridMin,
+      count: String(cat.projects.length).padStart(2, '0'),
+      projects,
+      hasPrev: !!prev,
+      prevName: prev ? prev.name : '',
+      prevHash: prev ? prev.key : '',
+      hasNext: !!next,
+      nextName: next ? next.name : '',
+      nextHash: next ? next.key : '',
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html{scroll-behavior:smooth;}
+  html,body{margin:0;padding:0;background:#F6F5F2;}
+  *{box-sizing:border-box;}
+  ::selection{background:#8A2D3B;color:#fff;}
+  @keyframes scrollbob{0%,100%{transform:translateY(0);}50%{transform:translateY(7px);}}
+  image-slot{--is-bg:#ECEBE6;--is-fg:#9a9a95;}
+  [data-rail]::-webkit-scrollbar{height:0;display:none;}
+  [data-rail]{scrollbar-width:none;}
+</style>
+</helmet>
+
+<div style="--accent: {{ accent }};font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#161616;background:#F6F5F2;height:100vh;overflow-y:auto;scroll-behavior:smooth;">
+
+  <a href="#home" aria-label="Back to home" style="position:fixed;left:clamp(28px,5vw,72px);top:22vh;z-index:210;display:inline-flex;align-items:center;will-change:transform;">
+    <img id="brandLogo" src="assets/logo-m.png" alt="Marvel home" style="height:clamp(150px,50vh,520px);width:auto;display:block;" />
+  </a>
+
+  <nav style="position:sticky;top:0;z-index:200;display:flex;justify-content:flex-end;align-items:center;padding:16px clamp(28px,5vw,72px);background:rgba(246,245,242,0.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #E6E5DF;">
+    <div style="display:flex;align-items:center;gap:clamp(20px,3vw,46px);font-size:15px;font-weight:600;letter-spacing:-0.01em;">
+      <a href="#about" style="color:#161616;text-decoration:none;transition:color .2s ease;" style-hover="color:var(--accent,#8A2D3B)">About</a>
+      <a href="#experience" style="color:#161616;text-decoration:none;transition:color .2s ease;" style-hover="color:var(--accent,#8A2D3B)">Experience</a>
+      <a href="#work" style="color:#161616;text-decoration:none;transition:color .2s ease;" style-hover="color:var(--accent,#8A2D3B)">Projects</a>
+      <a href="#contact" style="color:#161616;text-decoration:none;transition:color .2s ease;" style-hover="color:var(--accent,#8A2D3B)">Contact</a>
+    </div>
+  </nav>
+
+  <section id="home" style="scroll-margin-top:74px;min-height:calc(100vh - 59px);display:grid;grid-template-columns:1fr 1fr;align-items:center;column-gap:clamp(24px,4vw,64px);padding:clamp(32px,5vh,64px) clamp(28px,5vw,72px) clamp(28px,4vh,48px);">
+    <div aria-hidden="true"></div>
+
+    <div style="display:flex;flex-direction:column;align-items:flex-start;min-width:0;">
+      <h1 style="margin:0;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:900;font-size:clamp(34px,5.2vw,88px);line-height:0.98;letter-spacing:-0.03em;text-align:left;">Where concepts meet conviction</h1>
+      <p style="margin:24px 0 0;font-size:clamp(15px,1.3vw,19px);line-height:1.4;color:#6b6b66;max-width:440px;">Ideas that earn their place.</p>
+      <div style="display:flex;gap:28px;color:#6b6b66;font-size:clamp(13px,1.1vw,16px);margin-top:28px;flex-wrap:wrap;">
+        <span>mc.tzean@gmail.com</span>
+        <span>Singapore, SG</span>
+      </div>
+      <a href="#about" aria-label="Scroll to about" style="margin-top:clamp(36px,7vh,68px);display:inline-flex;flex-direction:column;gap:12px;align-items:flex-start;text-decoration:none;color:#161616;transition:color .2s ease;" style-hover="color:var(--accent,#8A2D3B)">
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.24em;text-transform:uppercase;color:#9a9a95;">Scroll</span>
+        <span style="font-size:22px;line-height:1;animation:scrollbob 1.8s ease-in-out infinite;">↓</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="about" style="scroll-margin-top:74px;min-height:100vh;display:flex;align-items:center;padding:clamp(72px,12vh,150px) clamp(28px,5vw,72px);border-top:1px solid #E6E5DF;">
+    <div style="max-width:1480px;margin:0 auto;width:100%;">
+      <div style="display:grid;grid-template-columns:minmax(0,440px) 1fr;gap:clamp(40px,5vw,88px);align-items:center;">
+        <div style="aspect-ratio:4/5;overflow:hidden;border-radius:10px;background:#ECEBE6;">
+          <image-slot id="marvel-portrait" shape="rect" fit="cover" placeholder="Drop a portrait or studio photo" style="width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.04)"></image-slot>
+        </div>
+        <div style="min-width:0;">
+          <div style="font-size:13px;letter-spacing:0.02em;color:#9a9a95;margin-bottom:18px;"><span style="color:var(--accent,#8A2D3B);font-weight:700;">(01)</span>&nbsp;&nbsp;About</div>
+          <h2 style="margin:0;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:900;font-size:clamp(40px,6.6vw,92px);line-height:0.92;letter-spacing:-0.04em;">Hello!<br/>I'm Marvel</h2>
+          <p style="margin:30px 0 0;font-size:clamp(18px,1.5vw,22px);line-height:1.4;max-width:640px;color:#2a2a28;font-weight:500;letter-spacing:-0.01em;">A marketing student at SUSS working where brand strategy meets storytelling, majoring in Marketing with a minor in Digital Content.</p>
+          <p style="margin:18px 0 0;font-size:16px;line-height:1.65;max-width:600px;color:#6b6b66;">I build brands that actually say something: identities and editorial work that pair sharp thinking with a clear point of view. I care less about chasing the feed and more about the story a brand tells when no one is scrolling.</p>
+          <div style="margin-top:34px;display:flex;flex-wrap:wrap;gap:10px;">
+            <span style="font-size:14px;font-weight:600;border:1px solid #d9d8d1;border-radius:999px;padding:7px 16px;">Brand Identity</span>
+            <span style="font-size:14px;font-weight:600;border:1px solid #d9d8d1;border-radius:999px;padding:7px 16px;">Art Direction</span>
+            <span style="font-size:14px;font-weight:600;border:1px solid #d9d8d1;border-radius:999px;padding:7px 16px;">Storytelling</span>
+            <span style="font-size:14px;font-weight:600;border:1px solid #d9d8d1;border-radius:999px;padding:7px 16px;">Editorial &amp; Layout</span>
+            <span style="font-size:14px;font-weight:600;border:1px solid #d9d8d1;border-radius:999px;padding:7px 16px;">Creative Strategy</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:clamp(56px,9vh,110px);border-top:1px solid #E6E5DF;padding-top:clamp(36px,5vh,64px);">
+        <div style="font-size:13px;letter-spacing:0.02em;color:#9a9a95;margin-bottom:clamp(16px,2vh,22px);"><span style="color:var(--accent,#8A2D3B);font-weight:700;">•</span>&nbsp;&nbsp;Approach</div>
+        <h3 style="margin:0 0 clamp(32px,5vh,56px);font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:900;font-size:clamp(30px,4.6vw,60px);line-height:0.95;letter-spacing:-0.03em;">My Design Philosophy</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(28px,4vw,56px);">
+        <div>
+          <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent,#8A2D3B);font-weight:700;margin-bottom:12px;">01</div>
+          <div style="font-size:19px;font-weight:700;letter-spacing:-0.01em;margin-bottom:10px;">Strategy</div>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#6b6b66;">I start with the idea, not the asset. Positioning, tone and the single thought a brand should own before a pixel is drawn.</p>
+        </div>
+        <div>
+          <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent,#8A2D3B);font-weight:700;margin-bottom:12px;">02</div>
+          <div style="font-size:19px;font-weight:700;letter-spacing:-0.01em;margin-bottom:10px;">Craft</div>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#6b6b66;">Type, layout and identity systems that hold up across a poster, a spread and a feed: consistent, considered, never generic.</p>
+        </div>
+        <div>
+          <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent,#8A2D3B);font-weight:700;margin-bottom:12px;">03</div>
+          <div style="font-size:19px;font-weight:700;letter-spacing:-0.01em;margin-bottom:10px;">Story</div>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#6b6b66;">Every project ends as a narrative, the reason it exists, told clearly enough that the work sells itself.</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" style="scroll-margin-top:74px;min-height:100vh;display:flex;align-items:center;padding:clamp(72px,12vh,150px) clamp(28px,5vw,72px);border-top:1px solid #E6E5DF;">
+    <div style="max-width:1480px;margin:0 auto;width:100%;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:13px;letter-spacing:0.02em;color:#9a9a95;margin-bottom:12px;"><span style="color:var(--accent,#8A2D3B);font-weight:700;">(02)</span>&nbsp;&nbsp;Experience</div>
+          <h2 style="margin:0;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:900;font-size:clamp(44px,7vw,84px);line-height:0.86;letter-spacing:-0.04em;">Experience</h2>
+        </div>
+        <div style="font-size:14px;color:#6b6b66;text-align:right;line-height:1.5;">Available for freelance<br/><span style="color:#9a9a95;">&amp; internships</span></div>
+      </div>
+
+      <div style="margin-top:clamp(40px,6vh,72px);border-bottom:1px solid #E6E5DF;">
+        <div style="border-top:1px solid #E6E5DF;padding:clamp(28px,4vh,44px) 0;display:grid;grid-template-columns:minmax(0,200px) minmax(0,1.2fr) minmax(0,1.4fr);gap:clamp(20px,3vw,48px);align-items:start;">
+          <div style="font-size:15px;font-weight:600;color:#161616;padding-top:6px;">2023&ndash;Present</div>
+          <div style="min-width:0;">
+            <div style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:clamp(24px,2.6vw,34px);line-height:1.02;letter-spacing:-0.02em;">Freelance Brand &amp; Creative</div>
+            <div style="font-size:14px;color:#9a9a95;margin-top:8px;">Self-employed &middot; Singapore</div>
+          </div>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#6b6b66;max-width:520px;padding-top:4px;">Brand identity, art direction and editorial work for early-stage brands and independent clients, from naming and logo systems to the campaigns and collateral that carry them.</p>
+        </div>
+        <div style="border-top:1px dashed #c9c8c1;padding:clamp(28px,4vh,44px) 0;display:grid;grid-template-columns:minmax(0,200px) minmax(0,1.2fr) minmax(0,1.4fr);gap:clamp(20px,3vw,48px);align-items:start;">
+          <div style="font-size:15px;font-weight:600;color:var(--accent,#8A2D3B);padding-top:6px;">Next?</div>
+          <div style="min-width:0;">
+            <div style="font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:clamp(24px,2.6vw,34px);line-height:1.02;letter-spacing:-0.02em;color:#9a9a95;">Your company here</div>
+            <div style="font-size:14px;color:#9a9a95;margin-top:8px;">Currently vacant &middot; could be you</div>
+          </div>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#6b6b66;max-width:520px;padding-top:4px;">Still waiting for you to drop your company&rsquo;s name right here. Internships, freelance, a brief you can&rsquo;t stop thinking about, I&rsquo;m ready when you are.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" style="scroll-margin-top:74px;padding:clamp(72px,12vh,150px) clamp(28px,5vw,72px);border-top:1px solid #E6E5DF;">
+    <div style="max-width:1480px;margin:0 auto;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:13px;letter-spacing:0.02em;color:#9a9a95;margin-bottom:12px;"><span style="color:var(--accent,#8A2D3B);font-weight:700;">(03)</span>&nbsp;&nbsp;Projects</div>
+          <h2 style="margin:0;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:900;font-size:clamp(44px,7vw,84px);line-height:0.86;letter-spacing:-0.04em;">Projects</h2>
+        </div>
+        <div style="font-size:14px;color:#6b6b66;text-align:right;line-height:1.5;">Editorial · Branding · Posters · Side Projects<br/><span style="color:#9a9a95;">2024&ndash;2026</span></div>
+      </div>
+
+      <div data-cat style="margin-top:clamp(48px,7vh,90px);">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vh,46px);">
+          <div style="display:flex;align-items:baseline;gap:18px;">
+            <span style="font-size:clamp(13px,1.1vw,15px);font-weight:700;color:var(--accent,#8A2D3B);">(A)</span>
+            <h3 style="margin:0;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:900;font-size:clamp(30px,4.4vw,58px);line-height:0.92;letter-spacing:-0.03em;">Editorial Work</h3>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;max-width:360px;">
+            <p style="margin:0;font-size:15px;line-height:1.5;color:#6b6b66;text-align:right;">Magazines, spreads and long-form layouts where typography leads and the story sets the pace.</p>
+            <div style="display:flex;gap:10px;margin-top:18px;">
+              <button type="button" data-scroll="prev" aria-label="Scroll left" style="width:46px;height:46px;border-radius:999px;border:1px solid #d4d3cc;background:transparent;color:#161616;font-size:18px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .2s ease,color .2s ease,border-color .2s ease;" style-hover="background:var(--accent,#8A2D3B);color:#fff;border-color:var(--accent,#8A2D3B)">&#8592;</button>
+              <button type="button" data-scroll="next" aria-label="Scroll right" style="width:46px;height:46px;border-radius:999px;border:1px solid #d4d3cc;background:transparent;color:#161616;font-size:18px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .2s ease,color .2s ease,border-color .2s ease;" style-hover="background:var(--accent,#8A2D3B);color:#fff;border-color:var(--accent,#8A2D3B)">&#8594;</button>
+            </div>
+          </div>
+        </div>
+        <div data-rail style="display:flex;gap:clamp(20px,2.2vw,32px);overflow-x:auto;padding:2px 2px 14px;-webkit-overflow-scrolling:touch;">
+          <a href="Category.dc.html#editorial" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;cursor:pointer;flex:0 0 clamp(300px,86vw,560px);">
+            <div style="aspect-ratio:16/9;overflow:hidden;border-radius:8px;background:#ECEBE6;">
+              <image-slot id="ed-frequencies" shape="rect" fit="cover" placeholder="Magazine spread, Frequencies" style="width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.05)"></image-slot>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;">
+              <span style="font-size:13px;font-weight:700;color:var(--accent,#8A2D3B);">01</span>
+              <span style="font-size:12px;color:#9a9a95;">2024</span>
+            </div>
+            <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-top:6px;">Frequencies</div>
+            <div style="font-size:14px;color:#6b6b66;margin-top:2px;">Magazine · 24pp</div>
+          </a>
+          <a href="Category.dc.html#editorial" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;cursor:pointer;flex:0 0 clamp(300px,86vw,560px);">
+            <div style="aspect-ratio:16/9;overflow:hidden;border-radius:8px;background:#ECEBE6;">
+              <image-slot id="ed-feature" shape="rect" fit="cover" placeholder="Editorial feature spread" style="width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.05)"></image-slot>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;">
+              <span style="font-size:13px;font-weight:700;color:var(--accent,#8A2D3B);">02</span>
+              <span style="font-size:12px;color:#9a9a95;">2025</span>
+            </div>
+            <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-top:6px;">Feature Spread</div>
+            <div style="font-size:14px;color:#6b6b66;margin-top:2px;">Editorial Layout</div>
+          </a>
+          <a href="Category.dc.html#editorial" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;cursor:pointer;flex:0 0 clamp(300px,86vw,560px);">
+            <div style="aspect-ratio:16/9;overflow:hidden;border-radius:8px;background:#ECEBE6;">
+              <image-slot id="ed-counterpoint" shape="rect" fit="cover" placeholder="Zine spread, Counterpoint" style="width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.05)"></image-slot>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;">
+              <span style="font-size:13px;font-weight:700;color:var(--accent,#8A2D3B);">03</span>
+              <span style="font-size:12px;color:#9a9a95;">2025</span>
+            </div>
+            <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-top:6px;">Counterpoint</div>
+            <div style="font-size:14px;color:#6b6b66;margin-top:2px;">Zine · 16pp</div>
+          </a>
+          <a href="Category.dc.html#editorial" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;cursor:pointer;flex:0 0 clamp(300px,86vw,560px);">
+            <div style="aspect-ratio:16/9;overflow:hidden;border-radius:8px;background:#ECEBE6;">
+              <image-slot id="ed-margins" shape="rect" fit="cover" placeholder="Editorial layout, Margins" style="width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.05)"></image-slot>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;">
+              <span style="font-size:13px;font-weight:700;color:var(--accent,#8A2D3B);">04</span>
+              <span style="font-size:12px;color:#9a9a95;">2026</span>
+            </div>
+            <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-top:6px;">Margins</div>
+            <div style="font-size:14px;color:#6b6b66;margin-top:2px;">Editorial Series</div>
+          </a>
+        </div>
+      </div>
+
+      <div data-cat style="margin-top:clamp(64px,10vh,130px);border-top:1px solid #E6E5DF;padding-top:clamp(40px,6vh,80px);">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vh,46px);">
+          <div style="display:flex;align-items:baseline;gap:18px;">
+            <span style="font-size:clamp(13px,1.1vw,15px);font-weight:700;color:var(--accent,#8A2D3B);">(B)</span>
+            <h3 style="margin:0;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:900;font-size:clamp(30px,4.4vw,58px);line-height:0.92;letter-spacing:-0.03em;">Branding</h3>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;max-width:360px;">
+            <p style="margin:0;font-size:15px;line-height:1.5;color:#6b6b66;text-align:right;">Identities built from a single clear idea: naming, logo systems and the rules that keep them alive.</p>
+            <div style="display:flex;gap:10px;margin-top:18px;">
+              <button type="button" data-scroll="prev" aria-label="Scroll left" style="width:46px;height:46px;border-radius:999px;border:1px solid #d4d3cc;background:transparent;color:#161616;font-size:18px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .2s ease,color .2s ease,border-color .2s ease;" style-hover="background:var(--accent,#8A2D3B);color:#fff;border-color:var(--accent,#8A2D3B)">&#8592;</button>
+              <button type="button" data-scroll="next" aria-label="Scroll right" style="width:46px;height:46px;border-radius:999px;border:1px solid #d4d3cc;background:transparent;color:#161616;font-size:18px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .2s ease,color .2s ease,border-color .2s ease;" style-hover="background:var(--accent,#8A2D3B);color:#fff;border-color:var(--accent,#8A2D3B)">&#8594;</button>
+            </div>
+          </div>
+        </div>
+        <div data-rail style="display:flex;gap:clamp(20px,2.2vw,32px);overflow-x:auto;padding:2px 2px 14px;-webkit-overflow-scrolling:touch;">
+          <a href="Category.dc.html#branding" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;cursor:pointer;flex:0 0 clamp(280px,82vw,440px);">
+            <div style="aspect-ratio:3/4;overflow:hidden;border-radius:8px;background:#ECEBE6;">
+              <image-slot id="brand-psst" shape="rect" fit="cover" placeholder="PSST brand shot" style="width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.05)"></image-slot>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;">
+              <span style="font-size:13px;font-weight:700;color:var(--accent,#8A2D3B);">01</span>
+              <span style="font-size:12px;color:#9a9a95;">2025</span>
+            </div>
+            <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-top:6px;">PSST</div>
+            <div style="font-size:14px;color:#6b6b66;margin-top:2px;">Brand Identity</div>
+          </a>
+          <a href="Category.dc.html#branding" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;cursor:pointer;flex:0 0 clamp(280px,82vw,440px);">
+            <div style="aspect-ratio:3/4;overflow:hidden;border-radius:8px;background:#ECEBE6;">
+              <image-slot id="brand-fefi" shape="rect" fit="cover" placeholder="Fe-Fi-Pho-Fun identity" style="width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.05)"></image-slot>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;">
+              <span style="font-size:13px;font-weight:700;color:var(--accent,#8A2D3B);">02</span>
+              <span style="font-size:12px;color:#9a9a95;">2025</span>
+            </div>
+            <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-top:6px;">Fe-Fi-Pho-Fun</div>
+            <div style="font-size:14px;color:#6b6b66;margin-top:2px;">Visual Identity</div>
+          </a>
+          <a href="Category.dc.html#branding" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;cursor:pointer;flex:0 0 clamp(280px,82vw,440px);">
+            <div style="aspect-ratio:3/4;overflow:hidden;border-radius:8px;background:#ECEBE6;">
+              <image-slot id="brand-three" shape="rect" fit="cover" placeholder="Identity system" style="width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.05)"></image-slot>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;">
+              <span style="font-size:13px;font-weight:700;color:var(--accent,#8A2D3B);">03</span>
+              <span style="font-size:12px;color:#9a9a95;">2026</span>
+            </div>
+            <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-top:6px;">Untitled</div>
+            <div style="font-size:14px;color:#6b6b66;margin-top:2px;">Identity System</div>
+          </a>
+        </div>
+      </div>
+
+      <div data-cat style="margin-top:clamp(64px,10vh,130px);border-top:1px solid #E6E5DF;padding-top:clamp(40px,6vh,80px);">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vh,46px);">
+          <div style="display:flex;align-items:baseline;gap:18px;">
+            <span style="font-size:clamp(13px,1.1vw,15px);font-weight:700;color:var(--accent,#8A2D3B);">(C)</span>
+            <h3 style="margin:0;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:900;font-size:clamp(30px,4.4vw,58px);line-height:0.92;letter-spacing:-0.03em;">Posters</h3>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;max-width:360px;">
+            <p style="margin:0;font-size:15px;line-height:1.5;color:#6b6b66;text-align:right;">Single-frame storytelling: type, image and tension resolved in one composition.</p>
+            <div style="display:flex;gap:10px;margin-top:18px;">
+              <button type="button" data-scroll="prev" aria-label="Scroll left" style="width:46px;height:46px;border-radius:999px;border:1px solid #d4d3cc;background:transparent;color:#161616;font-size:18px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .2s ease,color .2s ease,border-color .2s ease;" style-hover="background:var(--accent,#8A2D3B);color:#fff;border-color:var(--accent,#8A2D3B)">&#8592;</button>
+              <button type="button" data-scroll="next" aria-label="Scroll right" style="width:46px;height:46px;border-radius:999px;border:1px solid #d4d3cc;background:transparent;color:#161616;font-size:18px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .2s ease,color .2s ease,border-color .2s ease;" style-hover="background:var(--accent,#8A2D3B);color:#fff;border-color:var(--accent,#8A2D3B)">&#8594;</button>
+            </div>
+          </div>
+        </div>
+        <div data-rail style="display:flex;gap:clamp(20px,2.2vw,32px);overflow-x:auto;padding:2px 2px 14px;-webkit-overflow-scrolling:touch;">
+          <a href="Category.dc.html#posters" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;cursor:pointer;flex:0 0 clamp(280px,82vw,440px);">
+            <div style="aspect-ratio:2/3;overflow:hidden;border-radius:8px;background:#ECEBE6;">
+              <image-slot id="poster-offgrid" shape="rect" fit="cover" placeholder="Off-Grid poster" style="width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.05)"></image-slot>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;">
+              <span style="font-size:13px;font-weight:700;color:var(--accent,#8A2D3B);">01</span>
+              <span style="font-size:12px;color:#9a9a95;">2024</span>
+            </div>
+            <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-top:6px;">Off-Grid</div>
+            <div style="font-size:14px;color:#6b6b66;margin-top:2px;">Poster Series</div>
+          </a>
+          <a href="Category.dc.html#posters" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;cursor:pointer;flex:0 0 clamp(280px,82vw,440px);">
+            <div style="aspect-ratio:2/3;overflow:hidden;border-radius:8px;background:#ECEBE6;">
+              <image-slot id="poster-two" shape="rect" fit="cover" placeholder="Poster" style="width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.05)"></image-slot>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;">
+              <span style="font-size:13px;font-weight:700;color:var(--accent,#8A2D3B);">02</span>
+              <span style="font-size:12px;color:#9a9a95;">2025</span>
+            </div>
+            <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-top:6px;">Resonance</div>
+            <div style="font-size:14px;color:#6b6b66;margin-top:2px;">Poster</div>
+          </a>
+          <a href="Category.dc.html#posters" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;cursor:pointer;flex:0 0 clamp(280px,82vw,440px);">
+            <div style="aspect-ratio:2/3;overflow:hidden;border-radius:8px;background:#ECEBE6;">
+              <image-slot id="poster-three" shape="rect" fit="cover" placeholder="Poster" style="width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.05)"></image-slot>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;">
+              <span style="font-size:13px;font-weight:700;color:var(--accent,#8A2D3B);">03</span>
+              <span style="font-size:12px;color:#9a9a95;">2025</span>
+            </div>
+            <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-top:6px;">After Hours</div>
+            <div style="font-size:14px;color:#6b6b66;margin-top:2px;">Poster</div>
+          </a>
+        </div>
+      </div>
+
+      <div data-cat style="margin-top:clamp(64px,10vh,130px);border-top:1px solid #E6E5DF;padding-top:clamp(40px,6vh,80px);">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vh,46px);">
+          <div style="display:flex;align-items:baseline;gap:18px;">
+            <span style="font-size:clamp(13px,1.1vw,15px);font-weight:700;color:var(--accent,#8A2D3B);">(D)</span>
+            <h3 style="margin:0;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:900;font-size:clamp(30px,4.4vw,58px);line-height:0.92;letter-spacing:-0.03em;">Side Projects</h3>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;max-width:360px;">
+            <p style="margin:0;font-size:15px;line-height:1.5;color:#6b6b66;text-align:right;">Experiments and self-initiated work, where I test ideas without a brief.</p>
+            <div style="display:flex;gap:10px;margin-top:18px;">
+              <button type="button" data-scroll="prev" aria-label="Scroll left" style="width:46px;height:46px;border-radius:999px;border:1px solid #d4d3cc;background:transparent;color:#161616;font-size:18px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .2s ease,color .2s ease,border-color .2s ease;" style-hover="background:var(--accent,#8A2D3B);color:#fff;border-color:var(--accent,#8A2D3B)">&#8592;</button>
+              <button type="button" data-scroll="next" aria-label="Scroll right" style="width:46px;height:46px;border-radius:999px;border:1px solid #d4d3cc;background:transparent;color:#161616;font-size:18px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .2s ease,color .2s ease,border-color .2s ease;" style-hover="background:var(--accent,#8A2D3B);color:#fff;border-color:var(--accent,#8A2D3B)">&#8594;</button>
+            </div>
+          </div>
+        </div>
+        <div data-rail style="display:flex;gap:clamp(20px,2.2vw,32px);overflow-x:auto;padding:2px 2px 14px;-webkit-overflow-scrolling:touch;">
+          <a href="Category.dc.html#side" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;cursor:pointer;flex:0 0 clamp(280px,82vw,440px);">
+            <div style="aspect-ratio:4/5;overflow:hidden;border-radius:8px;background:#ECEBE6;">
+              <image-slot id="side-one" shape="rect" fit="cover" placeholder="Side project" style="width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.05)"></image-slot>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;">
+              <span style="font-size:13px;font-weight:700;color:var(--accent,#8A2D3B);">01</span>
+              <span style="font-size:12px;color:#9a9a95;">2026</span>
+            </div>
+            <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-top:6px;">In Progress</div>
+            <div style="font-size:14px;color:#6b6b66;margin-top:2px;">Self-Initiated</div>
+          </a>
+          <a href="Category.dc.html#side" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;cursor:pointer;flex:0 0 clamp(280px,82vw,440px);">
+            <div style="aspect-ratio:4/5;overflow:hidden;border-radius:8px;background:#ECEBE6;">
+              <image-slot id="side-two" shape="rect" fit="cover" placeholder="Side project" style="width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.05)"></image-slot>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;">
+              <span style="font-size:13px;font-weight:700;color:var(--accent,#8A2D3B);">02</span>
+              <span style="font-size:12px;color:#9a9a95;">2025</span>
+            </div>
+            <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-top:6px;">Studies</div>
+            <div style="font-size:14px;color:#6b6b66;margin-top:2px;">Type Studies</div>
+          </a>
+          <a href="Category.dc.html#side" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;cursor:pointer;flex:0 0 clamp(280px,82vw,440px);">
+            <div style="aspect-ratio:4/5;overflow:hidden;border-radius:8px;background:#ECEBE6;">
+              <image-slot id="side-three" shape="rect" fit="cover" placeholder="Side project" style="width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);" style-hover="transform:scale(1.05)"></image-slot>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;">
+              <span style="font-size:13px;font-weight:700;color:var(--accent,#8A2D3B);">03</span>
+              <span style="font-size:12px;color:#9a9a95;">2024</span>
+            </div>
+            <div style="font-size:21px;font-weight:700;letter-spacing:-0.02em;margin-top:6px;">Field Notes</div>
+            <div style="font-size:14px;color:#6b6b66;margin-top:2px;">Photography</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="scroll-margin-top:74px;min-height:100vh;display:flex;align-items:center;padding:clamp(72px,13vh,170px) clamp(28px,5vw,72px) clamp(56px,9vh,120px);border-top:1px solid #E6E5DF;">
+    <div style="max-width:1480px;margin:0 auto;width:100%;">
+      <div style="font-size:13px;letter-spacing:0.02em;color:#9a9a95;margin-bottom:22px;"><span style="color:var(--accent,#8A2D3B);font-weight:700;">(04)</span>&nbsp;&nbsp;Contact</div>
+      <h2 style="margin:0;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-weight:900;font-size:clamp(44px,9.2vw,140px);line-height:0.88;letter-spacing:-0.045em;">Let's work<br/>together.</h2>
+
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-top:clamp(40px,6vh,64px);">
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="font-size:13px;color:#9a9a95;">Available for internships, Singapore</div>
+          <a href="mailto:mc.tzean@gmail.com" style="font-size:clamp(24px,3vw,34px);font-weight:700;letter-spacing:-0.02em;color:#161616;text-decoration:none;border-bottom:2px solid transparent;transition:color .25s ease,border-color .25s ease;" style-hover="color:var(--accent,#8A2D3B);border-color:var(--accent,#8A2D3B)">mc.tzean@gmail.com</a>
+        </div>
+        <div style="display:flex;gap:30px;font-size:15px;">
+          <a href="#" style="color:#161616;text-decoration:none;border-bottom:1px solid #d4d3cc;padding-bottom:3px;transition:color .25s ease,border-color .25s ease;" style-hover="color:var(--accent,#8A2D3B);border-color:var(--accent,#8A2D3B)">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 1440, &quot;height&quot;: 900 },
+  &quot;accent&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#8A2D3B&quot;, &quot;tsType&quot;: &quot;string&quot; }
+}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this._onScroll = this._onScroll.bind(this);
+    this._onArrow = this._onArrow.bind(this);
+    this._onResize = this._onResize.bind(this);
+    this._raf = null;
+    this._ticking = false;
+    this._geom = null;
+  }
+  componentDidMount() {
+    const setup = () => {
+      const home = document.getElementById('home');
+      const img = document.getElementById('brandLogo');
+      if (!home || !img) { this._t = setTimeout(setup, 60); return; }
+      this._scroller = home.parentElement;
+      this._logo = img;
+      this._anchor = img.parentElement;
+      if (this._anchor) this._anchor.style.transformOrigin = 'top left';
+      this._scroller.addEventListener('scroll', this._onScroll, { passive: true });
+      this._scroller.addEventListener('click', this._onArrow);
+      window.addEventListener('resize', this._onResize);
+      this._measure();
+      this._update();
+    };
+    setup();
+  }
+  componentWillUnmount() {
+    if (this._t) clearTimeout(this._t);
+    if (this._scroller) {
+      this._scroller.removeEventListener('scroll', this._onScroll);
+      this._scroller.removeEventListener('click', this._onArrow);
+    }
+    window.removeEventListener('resize', this._onResize);
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._anim) cancelAnimationFrame(this._anim);
+  }
+  // Scroll fires often; coalesce to one transform write per frame.
+  _onScroll() {
+    if (this._ticking) return;
+    this._ticking = true;
+    this._raf = requestAnimationFrame(() => {
+      this._ticking = false;
+      this._update();
+    });
+  }
+  _onResize() {
+    this._measure();
+    this._update();
+  }
+  // Layout-touching work (reads + size/position writes) runs only on
+  // mount/resize, not on every scroll.
+  _measure() {
+    const sc = this._scroller, img = this._logo, a = this._anchor;
+    if (!sc || !img) return;
+    const vw = sc.clientWidth || window.innerWidth;
+    const vh = sc.clientHeight || window.innerHeight;
+    const pad = Math.min(Math.max(vw * 0.05, 28), 72);
+    const maxByW = (vw * 0.5 - pad * 1.5) / 1.2;
+    const bigH = Math.max(140, Math.min(vh * 0.56, maxByW, 540));
+    const smallH = 26;
+    const topStart = Math.max((vh - bigH) / 2, 70);
+    img.style.height = bigH + 'px';
+    if (a) a.style.top = topStart + 'px';
+    this._geom = { range: Math.max(vh * 0.45, 1), scaleEnd: smallH / bigH, shiftY: 16 - topStart };
+  }
+  // Scroll-time work: a single composited transform, no layout.
+  _update() {
+    const sc = this._scroller, a = this._anchor, g = this._geom;
+    if (!sc || !a || !g) return;
+    const p = Math.min(Math.max(sc.scrollTop / g.range, 0), 1);
+    const e = p * p * (3 - 2 * p); // smoothstep
+    const s = 1 + (g.scaleEnd - 1) * e;
+    a.style.transform = 'translateY(' + (g.shiftY * e) + 'px) scale(' + s + ')';
+  }
+  _onArrow(e) {
+    const btn = e.target.closest && e.target.closest('[data-scroll]');
+    if (!btn) return;
+    const cat = btn.closest('[data-cat]');
+    const rail = cat && cat.querySelector('[data-rail]');
+    if (!rail) return;
+    const dir = btn.getAttribute('data-scroll') === 'next' ? 1 : -1;
+    const amt = Math.max(rail.clientWidth * 0.82, 300);
+    const maxLeft = rail.scrollWidth - rail.clientWidth;
+    const start = rail.scrollLeft;
+    const target = Math.min(Math.max(start + dir * amt, 0), maxLeft);
+    if (rail._anim) cancelAnimationFrame(rail._anim);
+    const dur = 420, t0 = performance.now();
+    const step = (now) => {
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+      rail.scrollLeft = start + (target - start) * eased;
+      if (p < 1) rail._anim = requestAnimationFrame(step);
+    };
+    rail._anim = requestAnimationFrame(step);
+  }
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#8A2D3B',
+    };
+  }
+}
+</script>
+</body>
+</html>
